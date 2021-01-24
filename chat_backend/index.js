@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
 const config = require('./config/app')
-require
-app.get("/home",(req,res) => {
-    res.send("HOMEPAGE")
-});
+const router = require('./router')
+app.use(express.json())
+app.use(express.urlencoded({ extended : true}))
+app.use(router)
 
 const port = config.appPort
 
